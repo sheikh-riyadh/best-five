@@ -12,10 +12,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-neutral-900">
 
     <!-- Header section -->
-    <header class="bg-black h-screen">
+    <header class="bg-black">
         <section class="w-10/12 lg:w-11/12 mx-auto md:w-11/12">
             <div class="grid grid-cols-1 text-center md:grid-cols-2 sm:text-center md:text-left container mx-auto">
                 <!-- Text container -->
@@ -37,11 +37,152 @@
 
                 <!-- imgage container -->
                 <div>
-                    <img class="w-full" src="img/cricket.jpg">
+                    <img class="w-full h-full" src="img/cricket.jpg">
                 </div>
             </div>
         </section>
     </header>
+    <!-- Players container -->
+    <!-- Player grid container -->
+    <section class="mt-20 container mx-auto">
+        <div class="grid grid-cols-12 gap-5 container mx-auto">
+            <div class="grid grid-cols-3 gap-5 col-span-9">
+                <!-- Player-1 -->
+                <div class="border-2">
+                    <img src="img/players-img/AB De Villiers.jpg" class="w-full">
+                    <!-- Text container -->
+                    <div class="bg-black px-10 py-3">
+                        <h2 id="player-1" class="text-white text-center text-2xl font-bold">AB De Villiers</h2>
+                        <button id="player-1-btn"
+                            class="bg-orange-500 w-full mt-5 py-3 rounded-lg font-bold">Select</button>
+                    </div>
+                </div>
+                <!-- Player-2 -->
+                <div class="border-2">
+                    <img src="img/players-img/Andre-Russell.jpg" class="w-full">
+                    <!-- Text container -->
+                    <div class="bg-black px-10 py-3">
+                        <h2 id="player-2" class="text-white text-center text-2xl font-bold">Andre-Russell</h2>
+                        <button id="player-2-btn"
+                            class="bg-orange-500 w-full mt-5 py-3 rounded-lg font-bold">Select</button>
+                    </div>
+                </div>
+                <!-- Player-3 -->
+                <div class="border-2">
+                    <img src="img/players-img/Ben Stokes.jpg" class="w-full">
+                    <!-- Text container -->
+                    <div class="bg-black px-10 py-3">
+                        <h2 id="player-3" class="text-white text-center text-2xl font-bold">Ben Stokes</h2>
+                        <button id="player-3-btn"
+                            class="bg-orange-500 w-full mt-5 py-3 rounded-lg font-bold">Select</button>
+                    </div>
+                </div>
+                <!-- Player-4 -->
+                <div class="border-2">
+                    <img src="img/players-img/David Warner.jpg" class="w-full">
+                    <!-- Text container -->
+                    <div class="bg-black px-10 py-3">
+                        <h2 id="player-4" class="text-white text-center text-2xl font-bold">David Warner</h2>
+                        <button id="player-4-btn"
+                            class="bg-orange-500 w-full mt-5 py-3 rounded-lg font-bold">Select</button>
+                    </div>
+                </div>
+                <!-- Player-5 -->
+                <div class="border-2">
+                    <img src="img/players-img/Dwayne Bravo.jpg" class="w-full">
+                    <!-- Text container -->
+                    <div class="bg-black px-10 py-3">
+                        <h2 id="player-5" class="text-white text-center text-2xl font-bold">Dwayne Bravo</h2>
+                        <button id="player-5-btn"
+                            class="bg-orange-500 w-full mt-5 py-3 rounded-lg font-bold">Select</button>
+                    </div>
+                </div>
+                <!-- Player-6 -->
+                <div class="border-2">
+                    <img src="img/players-img/Jonny Bairstow.jpg" class="w-full">
+                    <!-- Text container -->
+                    <div class="bg-black px-10 py-3">
+                        <h2 id="player-6" class="text-white text-center text-2xl font-bold">Jonny Bairstow</h2>
+                        <button id="player-6-btn"
+                            class="bg-orange-500 w-full mt-5 py-3 rounded-lg font-bold">Select</button>
+                    </div>
+                </div>
+                <!-- Player-7 -->
+                <div class="border-2">
+                    <img src="img/players-img/Kane Williamson.jpg" class="w-full">
+                    <!-- Text container -->
+                    <div class="bg-black px-10 py-3">
+                        <h2 id="player-7" class="text-white text-center text-2xl font-bold">Kane Williamson</h2>
+                        <button id="player-7-btn"
+                            class="bg-orange-500 w-full mt-5 py-3 rounded-lg font-bold">Select</button>
+                    </div>
+                </div>
+                <!-- Player-8 -->
+                <div class="border-2">
+                    <img src="img/players-img/M.S. Dhoni.jpg" class="w-full">
+                    <!-- Text container -->
+                    <div class="bg-black px-10 py-3">
+                        <h2 id="player-8" class="text-white text-center text-2xl font-bold">M.S. Dhoni</h2>
+                        <button id="player-8-btn"
+                            class="bg-orange-500 w-full mt-5 py-3 rounded-lg font-bold">Select</button>
+                    </div>
+                </div>
+                <!-- Player-9 -->
+                <div class="border-2">
+                    <img src="img/players-img/Virat Kholi.jpg" class="w-full">
+                    <!-- Text container -->
+                    <div class="bg-black px-10 py-3">
+                        <h2 id="Player-9" class="text-white text-center text-2xl font-bold">Virat Kholi</h2>
+                        <button id="player-9-btn"
+                            class="bg-orange-500 w-full mt-5 py-3 rounded-lg font-bold">Select</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-3">
+                <!-- Players names -->
+                <div class="border-2 bg-black px-10 py-3 h-1/3 mb-5">
+                    <!-- Title -->
+                    <h2 class="text-center text-2xl text-white">Selected Players</h2>
+
+                    <!-- List container -->
+                    <ol id="order-list-container" class="text-white list-decimal mt-5">
+                    </ol>
+                </div>
+
+                <!-- Calculate container -->
+                <div class="border-2 bg-black px-10 py-3">
+                    <h2 class="text-center text-2xl text-white mb-4">Budget</h2>
+                    <!-- Player title -->
+                    <label class="text-white text-xl mt-4 block">Per Player</label>
+
+                    <!-- Per Player input field -->
+                    <input id="per-player-field" class="outline-0 rounded-lg py-2 indent-4 w-full" type="number">
+
+                    <!-- Calculate button -->
+                    <button id="calculate-btn"
+                        class="bg-orange-500 w-full mt-5 py-3 rounded-lg font-bold">Calculate</button>
+
+                    <!-- Player Expenses title -->
+                    <h2 class="text-white text-xl my-4">Player Expenses: <span id="player-expenses-price">00</span></h2>
+
+                    <!-- Manager input field -->
+                    <label class="text-white text-xl mt-4 block">Manager</label>
+                    <input id="manager-field" class="outline-0 rounded-lg py-2 indent-4 w-full" type="number">
+
+                    <!-- Coach input field -->
+                    <label class="text-white text-xl mt-4 block">Coach</label>
+                    <input id="coach-field" class="outline-0 rounded-lg py-2 indent-4 w-full" type="number">
+
+                    <!-- Total calculate button -->
+                    <button id="total-btn" class="bg-orange-500 w-full mt-5 py-3 rounded-lg font-bold">Calculate
+                        total</button>
+                    <h2 class="text-white text-xl mt-4">Total: <span id="total-price">00</span></h2>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
 </body>
 
 </html>
