@@ -1,3 +1,7 @@
+
+
+let count = 0;
+/* Set value and button disabled */
 function buttonDisabled(buttonID, playerNameID) {
     /* Increase count value */
     count++;

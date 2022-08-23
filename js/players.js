@@ -1,72 +1,41 @@
-let count = 0;
 
-/* Set value and button disabled */
-function buttonDisabled(buttonID, playerNameID) {
-    /* Increase count value */
-    count++;
 
-    /* Get player name */
-    const playerName1 = document.getElementById(playerNameID).innerText;
-
-    /* Get ol element */
-    const listContainer = document.getElementById('order-list-container');
-
-    /* Checking if count greater than 5 function will be break */
-    if (count > 5) {
-        alert("Ooop! you can't select more than five");
-        return;
-    }
-
-    /* Create new li element */
-    const li = document.createElement('li');
-    li.innerHTML = playerName1;
-    /* added tailwind class */
-    li.classList.add('mt-4');
-    /* Added li value in ol element */
-    listContainer.appendChild(li)
-
-    /* Button disabled */
-    const btnDisabled = document.getElementById(buttonID);
-    btnDisabled.setAttribute('disabled', true)
-    btnDisabled.classList.add('bg-orange-50');
-}
-
+/* Clear calculate input field and set value */
 function fieldClear() {
     /* Get per player cost */
-    const perPlayerCost = document.getElementById('per-player-field');
+    const perPlayerField = document.getElementById('per-player-field');
 
     /* Get ol element */
     const listContainer = document.getElementById('order-list-container');
 
     /* Get total players list */
-    const multiplication = listContainer.childNodes.length - 1;
+    const selectedPlayerListNumber = listContainer.childNodes.length - 1;
 
     /* Check player is select or not */
-    if (multiplication === 0) {
+    if (selectedPlayerListNumber === 0) {
         alert('You must select player');
-        perPlayerCost.value = '';
+        perPlayerField.value = '';
         return;
-    } else if (perPlayerCost.value === '') {
+    }/* Check field is empty or not */
+    else if (perPlayerField.value === '') {
         alert('Field is empty');
+        return;
+    } /* Check field value is negative */
+    else if (perPlayerField.value < 0) {
+        alert('Please insert positive number');
+        perPlayerField.value = '';
         return;
     }
 
+    /* Calculate  */
+    const totalCost = parseInt(perPlayerField.value) * selectedPlayerListNumber;
 
-    const totalCost = parseInt(perPlayerCost.value) * multiplication;
-
+    /* Set player expenses price */
     const playerExpensesPrice = document.getElementById('player-expenses-price');
     playerExpensesPrice.innerText = totalCost;
-    perPlayerCost.value = '';
-
-
-
-
-
+    perPlayerField.value = '';
 }
 
-document.getElementById('calculate-btn').addEventListener('click', function () {
-    fieldClear();
-})
 
 /* Player-1 button */
 document.getElementById('player-1-btn').addEventListener('click', function () {
@@ -113,5 +82,47 @@ document.getElementById('player-9-btn').addEventListener('click', function () {
     buttonDisabled('player-9-btn', 'player-9')
 })
 
+/* Calculate button */
+document.getElementById('calculate-btn').addEventListener('click', function () {
+    fieldClear();
+})
+
+document.getElementById('calculate-total-btn').addEventListener('click', function () {
+
+    /* Get manager field element */
+    const managerFieldElement = document.getElementById('manager-field');
+    /* Get coach field element */
+    const coachFieldElement = document.getElementById('coach-field');
+
+    /* Get manager field value and convert integer number */
+    const managerFieldValue = parseInt(managerFieldElement.value)
+    /* Get coach field value and convert integer number */
+    const coachFieldValue = parseInt(coachFieldElement.value)
+
+    /* Get ol element */
+    const listContainer = document.getElementById('order-list-container');
+
+    /* Get total players list */
+    const selectedPlayerListNumber = listContainer.childNodes.length - 1;
+
+    if (selectedPlayerListNumber === 0) {
+        alert('You must select player');
+        managerFieldElement.value = '';
+        coachFieldElement.value = '';
+        return;
+    }
+    else if (managerFieldElement.value === '' || coachFieldElement.value === '') {
+        alert('Field empty')
+        managerFieldElement.value = '';
+        coachFieldElement.value = '';
+        return;
+    } else if (managerFieldValue < 0 || coachFieldValue < 0) {
+        alert('Please insert positive number');
+        managerFieldElement.value = '';
+        coachFieldElement.value = '';
+        return;
+    }
+
+})
 
 
