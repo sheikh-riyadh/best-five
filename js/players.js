@@ -1,4 +1,6 @@
 let count = 0;
+
+/* Set value and button disabled */
 function buttonDisabled(buttonID, playerNameID) {
     /* Increase count value */
     count++;
@@ -27,8 +29,44 @@ function buttonDisabled(buttonID, playerNameID) {
     const btnDisabled = document.getElementById(buttonID);
     btnDisabled.setAttribute('disabled', true)
     btnDisabled.classList.add('bg-orange-50');
-    console.log(count)
 }
+
+function fieldClear() {
+    /* Get per player cost */
+    const perPlayerCost = document.getElementById('per-player-field');
+
+    /* Get ol element */
+    const listContainer = document.getElementById('order-list-container');
+
+    /* Get total players list */
+    const multiplication = listContainer.childNodes.length - 1;
+
+    /* Check player is select or not */
+    if (multiplication === 0) {
+        alert('You must select player');
+        perPlayerCost.value = '';
+        return;
+    } else if (perPlayerCost.value === '') {
+        alert('Field is empty');
+        return;
+    }
+
+
+    const totalCost = parseInt(perPlayerCost.value) * multiplication;
+
+    const playerExpensesPrice = document.getElementById('player-expenses-price');
+    playerExpensesPrice.innerText = totalCost;
+    perPlayerCost.value = '';
+
+
+
+
+
+}
+
+document.getElementById('calculate-btn').addEventListener('click', function () {
+    fieldClear();
+})
 
 /* Player-1 button */
 document.getElementById('player-1-btn').addEventListener('click', function () {
