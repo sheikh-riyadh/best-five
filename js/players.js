@@ -89,6 +89,12 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 
 document.getElementById('calculate-total-btn').addEventListener('click', function () {
 
+    /* Get player expenses element */
+    const playerExpensesElement = document.getElementById('player-expenses-price');
+
+    /* Get value and convert integar number */
+    const playerExpensesPrice = parseInt(playerExpensesElement.innerText)
+
     /* Get manager field element */
     const managerFieldElement = document.getElementById('manager-field');
     /* Get coach field element */
@@ -99,29 +105,52 @@ document.getElementById('calculate-total-btn').addEventListener('click', functio
     /* Get coach field value and convert integer number */
     const coachFieldValue = parseInt(coachFieldElement.value)
 
+
     /* Get ol element */
     const listContainer = document.getElementById('order-list-container');
 
     /* Get total players list */
     const selectedPlayerListNumber = listContainer.childNodes.length - 1;
 
+    /* Check player is selected */
     if (selectedPlayerListNumber === 0) {
         alert('You must select player');
         managerFieldElement.value = '';
         coachFieldElement.value = '';
         return;
     }
+    /* Check Per player field is complete or not */
+    else if (playerExpensesPrice === 0) {
+        alert('Please completed per player section');
+        managerFieldElement.value = '';
+        coachFieldElement.value = '';
+        return;
+    }
+    /* Check manager and coach field is empty or not */
     else if (managerFieldElement.value === '' || coachFieldElement.value === '') {
         alert('Field empty')
         managerFieldElement.value = '';
         coachFieldElement.value = '';
         return;
-    } else if (managerFieldValue < 0 || coachFieldValue < 0) {
+    }
+    /* Check manager and coach field value is negative */
+    else if (managerFieldValue < 0 || coachFieldValue < 0) {
         alert('Please insert positive number');
         managerFieldElement.value = '';
         coachFieldElement.value = '';
         return;
     }
+
+
+    /* Get total price element */
+    const totalElement = document.getElementById('total-price');
+    /* Sum manager field value and coach field value */
+    const totalPrice = managerFieldValue + coachFieldValue;
+    /* set total price inside total price element */
+    totalElement.innerText = totalPrice + playerExpensesPrice;
+    /* Clear manager and coach field */
+    managerFieldElement.value = '';
+    coachFieldElement.value = '';
 
 })
 
